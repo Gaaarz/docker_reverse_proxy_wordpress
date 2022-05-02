@@ -41,7 +41,7 @@ After startup wait round about 20 sec and remove the dummy certificates and priv
 ```
 $ rm -r $(dirname $path)
 ```
-Now we can request signed TLS certificate with certbot and restart NGINX to lead the new certificate
+### Now we can request signed TLS certificate with certbot and restart NGINX to lead the new certificate
 ```
 $ docker-compose run --rm --entrypoint "certbot certonly --webroot --webroot-path=/var/www/html --email $email --agree-tos --eff-email --force-renewal -d $domain -d www.$domain" certbot
 ```
