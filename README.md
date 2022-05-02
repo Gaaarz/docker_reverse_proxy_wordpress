@@ -61,3 +61,6 @@ $ docker-compose up -d
 $ docker-compose down
 ```
 
+## PS:
+Don´t forget to change your passwords in the /website/docker-compose.yml file.
+
