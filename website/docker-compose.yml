@@ -1,0 +1,42 @@
+version: "3.1"
+
+services:
+  mysql:
+    image: mysql:8.0.29
+    container_name: mysql
+    restart: unless-stopped    
+    environment:
+      - MYSQL_DATABASE=db_name
+      - MYSQL_ROOT_PASSWORD=yourpassword
+      - MYSQL_USER=mysql_user
+      - MYSQL_PASSWORD=yourpassword
+    volumes:
+      - mysql:/var/lib/mysql
+    command: '--default-authentication-plugin=mysql_native_password'
+    networks:
+      - network
+
+  wordpress:
+  
+    depends_on:
+      - mysql
+    image: wordpress:5.9.3  
+    container_name: wordpress
+    restart: unless-stopped
+    environment:
+      - WORDPRESS_DB_HOST=mysql
+      - WORDPRESS_DB_USER=mysql_user
+      - WORDPRESS_DB_PASSWORD=yourpassword
+      - WORDPRESS_DB_NAME=db_name
+    volumes:
+      - wordpress:/var/www/html
+    networks:
+      - network
+
+volumes:
+  mysql:
+  wordpress:
+
+networks:
+  network:
+    external: true
