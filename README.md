@@ -7,22 +7,20 @@ Download a copy of the app with `git clone`
 ```
 $ git clone https://github.com/Gaaarz/docker_reverse_proxy_wordpress /docker/
 ```
-
-## Environment Variables
-Set your variables domain and email:
+## Getting started
+###Set your variables domain and email:
 ```
 $ domain=yourdomain.com
 ```
 ```
 $ email=your@email.com
 ```
-
-## Generating a NGINX config for the given domain for our reverse-proxy
+Generating a NGINX config for the given domain for our reverse-proxy
 ```
 $ [ -f ./nginx-conf/nginx.conf-sample ] && cat ./nginx-conf/nginx.conf-sample | sed "s/ROOT_DOMAIN/$domain/" > ./nginx-conf/nginx.conf
 ```
 
-Generating a dummy certificate and private key for NGINX to start service
+###Generating a dummy certificate and private key for NGINX to start service
 ```
 $ dirname=$(echo $(basename $(pwd)) | sed "s/\.//")
 ```
@@ -54,7 +52,7 @@ $docker-compose restart nginx
 $systemctl enable docker
 ```
 
-## Starting compose
+###Starting compose
 Now you can start both compose files as you wish
 ```
 $ docker-compose up -d
