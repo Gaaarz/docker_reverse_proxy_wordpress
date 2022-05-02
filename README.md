@@ -35,13 +35,23 @@ $ sudo mkdir -p $path
 ```
 $ sudo openssl req -x509 -nodes -newkey rsa:4096 -days 1 -keyout ${path}privkey.pem -out ${path}fullchain.pem -subj '/CN=localhost'
 ```
-Now we need to start the NGINX to pull the dummy certificates (you need to be in the /reverse-proxy/-folder
+## Now we need to start the NGINX to pull the dummy certificates (you need to be in the /reverse-proxy/-folder
 ```
 $ docker-compose up -d
 ```
-After startup wait round about 20 sec and remove the dummy certificates and private key to prepare they way for new signed TLS certificates with certbot
+## After startup wait round about 20 sec and remove the dummy certificates and private key to prepare they way for new signed TLS certificates with certbot
 ```
 $ rm -r $(dirname $path)
+```
+## Now we can request signed TLS certificate with certbot and restart NGINX to lead the new certificate
+```
+$ docker-compose run --rm --entrypoint "certbot certonly --webroot --webroot-path=/var/www/html --email $email --agree-tos --eff-email --force-renewal -d $domain -d www.$domain" certbot
+```
+```
+docker-compose restart nginx
+```
+```
+systemctl enable docker
 ```
 
 
