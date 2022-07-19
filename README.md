@@ -5,7 +5,7 @@ First of all you need along with docker the [docker compose](https://docs.docker
 ## Git clone
 Download a copy of the app with `git clone`
 ```
-$ git clone https://github.com/Gaaarz/docker_reverse_proxy_wordpress /docker/
+$ git clone https://github.com/Gaaarz/docker_reverse_proxy_wordpress ~/docker/
 ```
 ## Getting started
 ### Set your variables domain and email:
