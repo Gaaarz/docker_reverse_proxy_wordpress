@@ -17,6 +17,7 @@ server {
         ssl_certificate_key /etc/letsencrypt/live/ROOT_DOMAIN/privkey.pem;
 
         include /etc/nginx/conf.d/options-ssl-nginx.conf;
+	
 	ssl_dhparam /etc/nginx/conf.d/ssl-dhparams.pem;
 
         location ~ /.well-known/acme-challenge {
@@ -28,6 +29,8 @@ server {
 				proxy_set_header Host $host;
 				proxy_set_header X-Forwarded-Proto "https";
 				proxy_set_header X-Forwarded-Port "443";
+				proxy_set_header X-Real-IP $remote_addr;
+				proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 				proxy_pass http://wordpress;
 		}
 }
