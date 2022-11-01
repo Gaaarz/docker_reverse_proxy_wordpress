@@ -1,6 +1,10 @@
 # How to setup a reverse proxy and wordpress with a docker compose
 
-First of all you need along with docker the [docker compose](https://docs.docker.com/compose/) install.
+First of all you need along with docker the [docker compose](https://docs.docker.com/compose/) install
+
+Second you need a domain linked to your server with an A DNS record
+
+Also you need to generate a password for MySQL and Wordpress database in the docker-compose enviroment statements file in ~/docker/website/ where I put "yourpassword"
 
 ## Git clone
 Download a copy of the app with `git clone`
@@ -56,9 +60,15 @@ sudo docker-compose restart nginx
 ```
 sudo systemctl enable docker
 ```
+```
+sudo docker compose down
+```
+
+Now we need to look into the generated nginx.conf in ~/docker/reverse-proxy/nginx-conf/ and compare it with the nginx.conf-sample
 
 ### Starting compose
-Now you can start both compose files as you wish
+Now you can start both compose files with the following commands in the folders ~/docker/reverse-proxy or ~/docker/website
+But you need to start reverse-proxy first
 ```
 sudo docker compose up -d
 ```
