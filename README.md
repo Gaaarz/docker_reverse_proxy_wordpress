@@ -75,8 +75,3 @@ sudo docker compose up -d
 ```
 sudo docker compose down
 ```
-
-## PS:
-Don´t forget to change your passwords in the /website/docker-compose.yml file.
-
-Cheers
