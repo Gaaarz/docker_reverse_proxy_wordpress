@@ -55,7 +55,7 @@ sudo rm -r $(dirname $path)
 sudo docker compose run --rm --entrypoint "certbot certonly --webroot --webroot-path=/var/www/html --email $email --agree-tos --eff-email --force-renewal -d $domain -d www.$domain" certbot
 ```
 ```
-sudo docker-compose restart nginx
+sudo docker compose restart nginx
 ```
 ```
 sudo systemctl enable docker
