@@ -21,6 +21,7 @@ services:
       - nginx
     image: certbot/certbot
     container_name: certbot
+    restart: unless-stopped
     volumes:
       - certbot:/etc/letsencrypt
       - webroot:/var/www/html
