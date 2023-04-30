@@ -10,7 +10,7 @@ read -p 'Email address for registration and recovery with EFF: ' email
 dirpath=$(dirname $(dirname $0))
 [ ! -f $dirpath/docker/reverse-proxy/nginx-conf/nginx.conf-sample ] \
     && echo "Sample NGINX config is not found" && exit 1
-cat $dirpath/reverse-proxy/nginx-conf/nginx.conf-sample | \
+cat $dirpath/docker/reverse-proxy/nginx-conf/nginx.conf-sample | \
     sed "s/ROOT_DOMAIN/$domain/" > $dirpath/docker/reverse-proxy/nginx-conf/nginx.conf
 
 if command -v docker-compose &> /dev/null; then
