@@ -77,6 +77,7 @@ Now we need to look into the generated nginx.conf in ~/docker/reverse-proxy/ngin
 
 ## Starting compose
 Now you can start both compose files with the following commands in the folders ~/docker/reverse-proxy or ~/docker/website
+
 But you need to start reverse-proxy first
 ```
 sudo docker compose up -d
