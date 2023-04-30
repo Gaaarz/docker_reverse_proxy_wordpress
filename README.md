@@ -21,6 +21,11 @@ I called this simply "network". You need to change in the docker compose file as
 ```
 sudo docker network create network
 ```
+## SSL/TLS Certificate automatic method
+```
+chmod +x ~/docker/certbot.sh && ~/docker/certbot.sh
+```
+## SSL/TLS Certificate manual method
 ### Set your variables domain and email:
 ```
 domain=yourdomain.com
