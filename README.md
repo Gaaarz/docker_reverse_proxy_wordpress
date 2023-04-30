@@ -25,7 +25,7 @@ sudo docker network create network
 ```
 sudo chmod +x ~/docker/certbot.sh && sudo ~/docker/certbot.sh
 ```
-## SSL/TLS Certificate manual method
+## SSL/TLS Certificate alternative manual method
 ### Set your variables domain and email:
 ```
 domain=yourdomain.com
