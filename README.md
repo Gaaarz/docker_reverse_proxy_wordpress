@@ -11,6 +11,10 @@ Download a copy of the app with `git clone`
 ```
 git clone https://github.com/Gaaarz/docker_reverse_proxy_wordpress ~/docker/
 ```
+Switch to the new created folder
+```
+cd ~/docker/
+```
 ## Getting started
 ### Create a seperate network:
 I called this simply "network". You need to change in the docker compose file as well if you change it to your own network name
